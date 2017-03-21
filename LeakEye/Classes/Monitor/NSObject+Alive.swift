@@ -18,11 +18,11 @@ extension NSObject {
     //--------------------------------------------------------------------------
     func judgeAlive() -> Bool {
         if self.isKind(of: UIViewController.classForCoder()) {
-            return self.judge(controller: self as! UIViewController)
+            return self.judge(self as! UIViewController)
         }else if self.isKind(of: UIView.classForCoder()) {
-            return self.judge(view: self as! UIView )
+            return self.judge(self as! UIView )
         }else {
-            return self.judge(common: self)
+            return self.judge(self)
         }
     }
     
@@ -31,7 +31,7 @@ extension NSObject {
     //--------------------------------------------------------------------------
     
     /// judeg a comman instance is alive
-    private func judge(common:NSObject) -> Bool {
+    fileprivate func judge(_ common:NSObject) -> Bool {
         var alive = true
         if common.agent?.host == nil {
             alive = false
@@ -41,7 +41,7 @@ extension NSObject {
     }
     
     /// judge the controller instance is alive
-    private func judge(controller:UIViewController) -> Bool {
+    fileprivate func judge(_ controller:UIViewController) -> Bool {
         //1. self.view is not in the window
         //2. self is not in the navigation controllers
         
@@ -70,7 +70,7 @@ extension NSObject {
     }
     
     /// judge the view instance is alive
-    private func judge(view:UIView) -> Bool {
+    fileprivate func judge(_ view:UIView) -> Bool {
         
         var alive = true
         var onUIStack = false

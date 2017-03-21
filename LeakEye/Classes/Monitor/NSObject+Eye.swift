@@ -12,7 +12,7 @@ import Foundation
 // MARK: - NSObject agent extension
 //--------------------------------------------------------------------------
 extension NSObject {
-    private struct key {
+    fileprivate struct key {
         static var objectAgent = "\(#file)+\(#line)"
     }
     
@@ -42,18 +42,18 @@ extension NSObject {
         var monitorVariables = [String]()
         
         //track class level1
-        if self.isSystemClass(clazz: self.classForCoder) == false {
-            let var_level1 = self.getAllVariableName(cls: self.classForCoder)
+        if self.isSystemClass(self.classForCoder) == false {
+            let var_level1 = self.getAllVariableName(self.classForCoder)
             monitorVariables.append(contentsOf: var_level1)
         }
         
-        if self.isSystemClass(clazz: self.superclass) {
-            let var_level2 = self.getAllVariableName(cls: self.superclass!)
+        if self.isSystemClass(self.superclass) {
+            let var_level2 = self.getAllVariableName(self.superclass!)
             monitorVariables.append(contentsOf: var_level2)
         }
         
-        if self.isSystemClass(clazz: self.superclass?.superclass()) {
-            let var_level3 = self.getAllVariableName(cls: self.superclass!.superclass()!)
+        if self.isSystemClass(self.superclass?.superclass()) {
+            let var_level3 = self.getAllVariableName(self.superclass!.superclass()!)
             monitorVariables.append(contentsOf: var_level3)
         }
         
@@ -75,7 +75,7 @@ extension NSObject {
         }
     }
     
-    private func getAllVariableName(cls:AnyClass) -> [String] {
+    fileprivate func getAllVariableName(_ cls:AnyClass) -> [String] {
         
         let count = UnsafeMutablePointer<UInt32>.allocate(capacity: 0)
         let properties = class_copyPropertyList(cls, count)
@@ -124,7 +124,7 @@ extension NSObject {
             return false
         }
         //not check system class
-        if self.isSystemClass(clazz: self.classForCoder) {
+        if self.isSystemClass(self.classForCoder) {
             return false
         }
         //view object needs a super view ti be alive 
@@ -146,7 +146,7 @@ extension NSObject {
     }
 
     /// judeg the specified class is one of the system class
-    func isSystemClass(clazz:AnyClass?) -> Bool {
+    func isSystemClass(_ clazz:AnyClass?) -> Bool {
         
         guard let clazz = clazz else {
             return false

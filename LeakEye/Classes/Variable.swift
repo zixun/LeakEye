@@ -37,7 +37,7 @@ class Variable: NSObject {
     /// type of the property
     func type() -> AnyClass? {
         let t = String(cString: property_getAttributes(self.property)).components(separatedBy: ",").first
-        guard let type = t?.between(left: "@\"", "\"") else {
+        guard let type = t?.between("@\"", "\"") else {
             return nil
         }
         return NSClassFromString(type)
@@ -45,6 +45,6 @@ class Variable: NSObject {
     //--------------------------------------------------------------------------
     // MARK: PRIVATE PROPERTY
     //--------------------------------------------------------------------------
-    private var property: objc_property_t!
+    fileprivate var property: objc_property_t!
 }
 

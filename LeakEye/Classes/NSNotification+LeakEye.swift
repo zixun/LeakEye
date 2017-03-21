@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSNotification.Name {
+extension Notification.Name {
     
     static let scan = NSNotification.Name("scan")
     

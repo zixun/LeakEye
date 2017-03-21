@@ -83,5 +83,5 @@ class ObjectAgent: NSObject {
     //--------------------------------------------------------------------------
     private var didNotified: Bool = false
     
-    private var leakCheckFailCount: Int = 0
+    fileprivate var leakCheckFailCount: Int = 0
 }

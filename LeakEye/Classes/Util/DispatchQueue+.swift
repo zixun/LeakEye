@@ -9,9 +9,9 @@
 import Foundation
 
 public extension DispatchQueue {
-    private static var _onceTracker = [String]()
+    fileprivate static var _onceTracker = [String]()
     
-    public class func once(file: String = #file, function: String = #function, line: Int = #line, block:(Void)->Void) {
+    public class func once(_ file: String = #file, function: String = #function, line: Int = #line, block:(Void)->Void) {
         let token = file + ":" + function + ":" + String(line)
         once(token: token, block: block)
     }

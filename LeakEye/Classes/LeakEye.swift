@@ -12,7 +12,7 @@ import Foundation
 // MARK: - LeakEyeDelegate
 //--------------------------------------------------------------------------
 @objc public protocol LeakEyeDelegate: NSObjectProtocol {
-   @objc optional func leakEye(leakEye:LeakEye,didCatchLeak object:NSObject)
+   @objc optional func leakEye(_ leakEye:LeakEye,didCatchLeak object:NSObject)
 }
 
 //--------------------------------------------------------------------------
@@ -79,7 +79,7 @@ open class LeakEye: NSObject {
         guard let leakObj = notif.object as? NSObject else {
             return
         }
-        self.delegate?.leakEye?(leakEye: self, didCatchLeak: leakObj)
+        self.delegate?.leakEye?(self, didCatchLeak: leakObj)
     }
     
     //--------------------------------------------------------------------------
