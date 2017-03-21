@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/LeakEye.svg?style=flat)](http://cocoapods.org/pods/LeakEye)
 [![License](https://img.shields.io/cocoapods/l/LeakEye.svg?style=flat)](http://cocoapods.org/pods/LeakEye)
 [![Platform](https://img.shields.io/cocoapods/p/LeakEye.svg?style=flat)](http://cocoapods.org/pods/LeakEye)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage) 
 
 LeakEye is a memory leak monitor inspired by PLeakSniffer.
 
@@ -21,11 +22,19 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
+### CocoaPods
 LeakEye is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "LeakEye"
+```
+
+### Carthage
+Or, if you’re using [Carthage](https://github.com/Carthage/Carthage), add SwViewCapture to your Cartfile:
+
+``` 
+github "zixun/LeakEye"
 ```
 
 ## Usage
