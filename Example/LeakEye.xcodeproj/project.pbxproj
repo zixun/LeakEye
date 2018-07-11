@@ -342,7 +342,6 @@
 				9E24FA791E81165D001AD0D7 /* Frameworks */,
 				9E24FA7A1E81165D001AD0D7 /* Headers */,
 				9E24FA7B1E81165D001AD0D7 /* Resources */,
-				9E24FAA81E812E57001AD0D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -464,20 +463,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeakEye_Example/Pods-LeakEye_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		9E24FAA81E812E57001AD0D7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/AppSwizzle.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		C6FFD762E2699A1232764C32 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
